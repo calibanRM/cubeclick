@@ -1,0 +1,21 @@
+.container{
+	margin: auto;
+	text-align: center;
+	width: 80%;
+}
+#juego{
+	background-color: #000;
+	height: 500px;
+	margin: auto;
+	width: 500px;
+	padding: 5px;
+}
+.pieza{
+	background-color: #fff;
+	border-radius: 10px;
+	float: left;
+	height: 244px;
+	margin: 3px;
+	width: 244px;
+
+}
