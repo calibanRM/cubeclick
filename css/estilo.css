@@ -14,8 +14,14 @@
 	background-color: #fff;
 	border-radius: 10px;
 	float: left;
-	height: 244px;
+	height:calc(50% - 2 * 3px);
 	margin: 3px;
-	width: 244px;
+	width:calc(50% - 2 * 3px);
 
+}
+.sub_container{
+	float: left;
+	height: calc(50% - 2 * 3px);
+	margin: 3px;
+	width:calc(50% - 2 * 3px);
 }
