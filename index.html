@@ -13,29 +13,11 @@
 			<div class="pieza"></div>
 			<div class="pieza"></div>
 			<div class="pieza"></div>
-			<div class="sub_container">
-				<div class="pieza"></div>
-				<div class="pieza"></div>
-				<div class="pieza"></div>
-				<div class="pieza"></div>
-			</div>
+			<div class="pieza"></div>
+			
+			
 		</div>
 	</div>
-	<script>
-	$(document).on("ready",function(){
-		$(".pieza").on("click",function(){
-			console.log($(this).css("background-color"));
-			if($(this).prop("color")!="red"){
-				$(this).css("background-color","red");
-				$(this).prop("color","red");	
-			}else{
-				$(this).css("background-color","white");
-				$(this).prop("color","white");	
-				
-			}
-		});
-	});
-
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

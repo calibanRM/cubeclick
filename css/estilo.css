@@ -12,7 +12,7 @@
 }
 .pieza{
 	background-color: #fff;
-	border-radius: 10px;
+	border-radius: 2%;
 	float: left;
 	height:calc(50% - 2 * 3px);
 	margin: 3px;
@@ -21,7 +21,7 @@
 }
 .sub_container{
 	float: left;
-	height: calc(50% - 2 * 3px);
-	margin: 3px;
-	width:calc(50% - 2 * 3px);
+	height:calc(50% - 2 * 0px);
+	margin: 0px;
+	width:calc(50% - 2 * 0px);
 }
