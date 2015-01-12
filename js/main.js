@@ -1,14 +1,20 @@
 $(document).on("ready",function(){
+	/*
+	*=======================================
+	*CAMBIO PARA TRABAJAR CON CLASE ROJO ===
+	*=======================================
+	*/
+	//DOCUMENTACION DE LAS FUNCIONES USADAS
+	//http://api.jquery.com/hasclass/
+	//http://api.jquery.com/addClass/
+	//http://api.jquery.com/removeClass/
 	$(document).on("click",".pieza",function(){
 		console.log($(this).css("background-color"));
-		if($(this).prop("color")!="red"){
-			$(this).css("background-color","red");
-			$(this).prop("color","red");
+		if(!$(this).hasClass("rojo")){
+			$(this).addClass("rojo");
 		}else{
 			newSubContainer($(this));
-			$(this).css("background-color","");
-			$(this).prop("color","white");	
-			
+			$(this).removeClass("rojo");
 		}
 	});
 
