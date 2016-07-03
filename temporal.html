@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<input type="text" id="reloj">
+	<input type="button" id="start" >
+
+	<script>
+		
+		var minuto = 2;
+		var segundo = 0;
+		
+		function interval(){
+			setInterval("crono();",1000);
+		}
+
+		function crono(){
+			
+			var reloj = document.getElementById("reloj");
+			reloj.value = minuto + ":"+segundo;
+			
+			segundo = segundo - 1;
+			
+			if(segundo < 0){
+				minuto = minuto-1;
+				segundo = 2;
+			} 
+			
+		}
+		document.getElementById("start").addEventListener("click", interval);
+		
+	</script>
+</body>
+</html>
