@@ -14,29 +14,35 @@
 		var minuto = 2;
 		var segundo = 0;
 		
-
-		var interval = setInterval("crono();", 1000);
-		
+		var start = document.getElementById('start');
+		start.addEventListener("click", crono); 
 		
 		function crono(){
 			
 			var reloj = document.getElementById("reloj");
 			reloj.value = minuto + ":"+segundo;
+			segundo = segundo-1;
 			
 
-			segundo = segundo - 1;
-			
-			if(segundo == 0 && minuto == 0){
-				clearInterval(interval);
+
+			if(segundo <= -1 && minuto <= 0){
+				clearTimeout(interval);
+				segundo=0;
 			}
 			
 			if(segundo < 0){
 				minuto = minuto-1;
-				segundo = 2;
+				segundo = 59;
 			}
+			setTimeout("crono();",1000);
 
 		}
-		document.getElementById("start").addEventListener("click", interval);
+		//*****INHABILITAR BOTON CLICKEADO*************
+		//*****PARA EVITAR REPETICION DE EJECUCION*****
+		function bloquearbtn(){
+			start.disabled = true;
+		}
+		start.addEventListener("click",bloquearbtn);
 		
 	</script>
 </body>
