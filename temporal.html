@@ -10,30 +10,31 @@
 	<input type="button" id="start" >
 
 	<script>
-		/*
-		*****************************************************
-		AGREGAR CLEARINTERVAL() CUANDO LA CUENTA LLEGA A 0.
-		*****************************************************
-		*/
+		
 		var minuto = 2;
 		var segundo = 0;
 		
-		function interval(){
-			setInterval("crono();",1000);
-		}
 
+		var interval = setInterval("crono();", 1000);
+		
+		
 		function crono(){
 			
 			var reloj = document.getElementById("reloj");
 			reloj.value = minuto + ":"+segundo;
 			
+
 			segundo = segundo - 1;
+			
+			if(segundo == 0 && minuto == 0){
+				clearInterval(interval);
+			}
 			
 			if(segundo < 0){
 				minuto = minuto-1;
 				segundo = 2;
-			} 
-			
+			}
+
 		}
 		document.getElementById("start").addEventListener("click", interval);
 		
