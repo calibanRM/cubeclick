@@ -41,4 +41,28 @@ $(document).on("ready", function() {
         }
 
     }
-});
+
+        var minuto = 2;
+        var segundo = 0;
+        $("#reloj").prop("disabled",true);
+    $(document).on("click","#start", function(){  crono();  })
+        function crono(){
+            $("#reloj").val(minuto + " : " + segundo);
+            var timeout = setTimeout(crono,1000);
+            
+            segundo = segundo-1;
+            if(segundo <= -1 && minuto <= 0){
+                clearTimeout(timeout);
+                
+            }
+            if(segundo < 0){
+                minuto = minuto-1;
+                segundo = 59;
+            }
+        bloqueoBtn();
+        }
+        
+        function bloqueoBtn(){
+            $("#start").prop("disabled",true);
+        }     
+    });

@@ -4,44 +4,44 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="css/estilo.css">
 
 </head>
 <body>
 	<input type="text" id="reloj">
 	<input type="button" id="start" value="Start!">
 
-	<script>		
-		$(document).on("ready", function(){
+	<script>
+		$(document).on("ready",function(){
 			
 			var minuto = 2;
 			var segundo = 0;
-		
-		$(document).on("click","#start",function interval(){
-			setInterval(crono,1000);
-			//function bloquearBtn();
-		})
-		
-		function crono(){
-			$("#reloj").val(minuto + ":" + segundo);
+			$("#reloj").prop("disabled",true);
 			
-			if(segundo <= 0 && minuto <= 0){
-				clearInterval(interval);
-				
-			}
-			segundo = segundo-1;
-			
-			
-			
-			if(segundo < 0){
-				minuto = minuto-1;
-				segundo = 2;
-			}
-		bloquearBtn();
-		}
-		function bloquearBtn(){
-			$("#start").prop("disabled", true);
-		}
-
+			$(document).on("click","#start", function(){
+			crono();
+			})
+				function crono(){
+					$("#reloj").val(minuto + " : " + segundo);
+					segundo = segundo-1;
+					
+					var timeout = setTimeout(crono,1000);
+					
+					if(segundo <= -1 && minuto <= 0){
+						clearTimeout(timeout);
+						
+					}
+					
+					if(segundo < 0)
+					{
+						minuto = minuto-1;
+						segundo = 1;
+					}
+					bloqueoBtn();
+				}
+				function bloqueoBtn(){
+					$("#start").prop("disabled",true);
+				}
 		})
 	</script>
 </body>

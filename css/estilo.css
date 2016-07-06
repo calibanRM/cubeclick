@@ -28,3 +28,9 @@
 .rojo{
 	background-color: red;
 }
+#reloj:disabled{
+	color: #1d1d1d;
+}
+#start:disabled{
+	color: #1d1d1d;
+}
