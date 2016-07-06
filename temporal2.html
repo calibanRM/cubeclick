@@ -17,7 +17,8 @@
 			var segundo = 0;
 		
 		$(document).on("click","#start",function interval(){
-			setInterval(crono,1000)
+			setInterval(crono,1000);
+			//function bloquearBtn();
 		})
 		
 		function crono(){
@@ -35,7 +36,10 @@
 				minuto = minuto-1;
 				segundo = 2;
 			}
-			
+		bloquearBtn();
+		}
+		function bloquearBtn(){
+			$("#start").prop("disabled", true);
 		}
 
 		})
