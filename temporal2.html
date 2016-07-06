@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery.js"></script>
+
+</head>
+<body>
+	<input type="text" id="reloj">
+	<input type="button" id="start" value="Start!">
+
+	<script>		
+		$(document).on("ready", function(){
+			
+			var minuto = 2;
+			var segundo = 0;
+		
+		$(document).on("click","#start",function interval(){
+			setInterval(crono,1000)
+		})
+		
+		function crono(){
+			$("#reloj").val(minuto + ":" + segundo);
+			
+			if(segundo <= 0 && minuto <= 0){
+				clearInterval(interval);
+				
+			}
+			segundo = segundo-1;
+			
+			
+			
+			if(segundo < 0){
+				minuto = minuto-1;
+				segundo = 2;
+			}
+			
+		}
+
+		})
+	</script>
+</body>
+</html>
