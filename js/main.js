@@ -36,6 +36,17 @@ $(document).on("ready", function() {
         }
     }
     /*
+    =====================
+    REINICIAR EL JUEGO===
+    =====================
+    */
+    $(document).on("click","#mensaje",function(){
+        var startingElm = $(".container").html();
+        $(".container").html(startingElm);
+
+                
+    });
+    /*
      *===================================
      *FUNCTION FOR ADDCLASS RANDOM ======
      *===================================
@@ -70,7 +81,7 @@ $(document).on("ready", function() {
         }
         if (segundo < 0) {
             minuto = minuto - 1;
-            segundo = 59;
+            segundo = 1;
         }
         bloqueoBtn();
     }
