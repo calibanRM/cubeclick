@@ -1,4 +1,5 @@
 $(document).on("ready", function() {
+    var startingElm = $(".container").html();
     /*
      *=======================================
      *CAMBIO PARA TRABAJAR CON CLASE ROJO ===
@@ -41,7 +42,7 @@ $(document).on("ready", function() {
     =====================
     */
     $(document).on("click","#mensaje",function(){
-        var startingElm = $(".container").html();
+        
         $(".container").html(startingElm);
 
                 
