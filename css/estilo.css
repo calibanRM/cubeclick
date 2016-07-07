@@ -28,6 +28,9 @@
 .rojo{
 	background-color: red;
 }
+.removed{
+	visibility: hidden;
+}
 #reloj:disabled{
 	color: #1d1d1d;
 }
