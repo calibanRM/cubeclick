@@ -37,3 +37,33 @@
 #start:disabled{
 	color: #1d1d1d;
 }
+#popup{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.75);
+}
+
+#mensaje{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+	background-color: white;
+	display: table;
+	border-radius: 10px;
+	background-color: #DAFA5A;
+}
+#finish{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}

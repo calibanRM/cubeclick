@@ -66,6 +66,7 @@ $(document).on("ready", function() {
         segundo = segundo - 1;
         if (segundo <= -1 && minuto <= 0) {
             clearTimeout(timeout);
+            bloqueo();
         }
         if (segundo < 0) {
             minuto = minuto - 1;
@@ -77,4 +78,19 @@ $(document).on("ready", function() {
     function bloqueoBtn() {
         $("#start").prop("disabled", true);
     }
+
+    //========================================
+    //BLOQUEO DE PANTALLA AL TERMINAR EL JUEGO
+    //========================================
+    function bloqueo(){
+        $("#popup").show();
+    }
+    /*
+    ====================================
+    ======DESBLOQUEO DE PANTALLA========
+    ====================================
+    */
+    $(document).on("click","#mensaje",function(){
+        $("#popup").hide();
+    });
 });
