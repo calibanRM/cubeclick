@@ -44,7 +44,8 @@ $(document).on("ready", function() {
     $(document).on("click","#mensaje",function(){
         
         $(".container").html(startingElm);
-
+        minuto = 2;
+        segundo = 0;
                 
     });
     /*
@@ -72,6 +73,7 @@ $(document).on("ready", function() {
     });
 
     function crono() {
+
         randomAddClassObjects($(".pieza"), "rojo");
         $("#reloj").val(minuto + " : " + segundo);
         var timeout = setTimeout(crono, 1000);
@@ -82,7 +84,7 @@ $(document).on("ready", function() {
         }
         if (segundo < 0) {
             minuto = minuto - 1;
-            segundo = 1;
+            segundo = 59;
         }
         bloqueoBtn();
     }
