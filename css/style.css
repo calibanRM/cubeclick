@@ -1,16 +1,27 @@
+body {
+    font-family: 'Aldrich';font-size: 22px;
+}
 .container{
 	margin: auto;
 	text-align: center;
 	width: 80%;
 }
-#juego{
+.game-container{
+  display: flex;
+  flex-direction: horizontal;
+  justify-content: center;
+}
+.game{
 	background-color: #000;
 	height: 500px;
-	margin: auto;
+  display: inline-block;
 	width: 500px;
 	padding: 5px;
 }
-.pieza{
+.history{
+  padding: 0 20px;
+}
+.item{
 	background-color: #fff;
 	border-radius: 2%;
 	float: left;
@@ -25,13 +36,13 @@
 	margin: 0px;
 	width:calc(50% - 2 * 0px);
 }
-.rojo{
+.red{
 	background-color: red;
 }
 .removed{
 	visibility: hidden;
 }
-#reloj:disabled{
+#clock:disabled{
 	color: #1d1d1d;
 }
 #start:disabled{
@@ -48,7 +59,7 @@
 	background-color: rgba(0,0,0,0.75);
 }
 
-#mensaje{
+#message{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -66,4 +77,7 @@
 	vertical-align: middle;
 	text-align: center;
 	cursor: pointer;
+}
+.counter{
+  padding: 10px;
 }

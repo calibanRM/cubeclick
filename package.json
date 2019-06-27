@@ -1,0 +1,29 @@
+{
+  "name": "cubeclick",
+  "version": "0.0.1",
+  "description": "simple game using only click",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calibanRM/cubeclick.git"
+  },
+  "keywords": [
+    "game",
+    "click",
+    "html",
+    "js"
+  ],
+  "author": "ivanhuay@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calibanRM/cubeclick/issues"
+  },
+  "homepage": "https://github.com/calibanRM/cubeclick#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
