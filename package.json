@@ -1,11 +1,12 @@
 {
   "name": "cubeclick",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "simple game using only click",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ."
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --dest docs",
+    "lint": "vue-cli-service lint"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,39 @@
   },
   "homepage": "https://github.com/calibanRM/cubeclick#readme",
   "dependencies": {
-    "http-server": "^0.11.1"
-  }
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
