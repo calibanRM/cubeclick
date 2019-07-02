@@ -3,7 +3,7 @@
 			<div class="container">
 				<h1>Cubeclick</h1>
 				<div class="counter">
-					Points: {{points}}
+					<span>Points: {{points}}</span> <span>Combo: {{combo}}<span v-if="combo == maxCombo">MAX</span></span>
 				</div>
 				<div class="game-container">
 					<div class="game">
@@ -42,12 +42,22 @@ export default {
     allElements: [],
     points: 0,
     started: false,
-    history: []
+    history: [],
+    combo: 0,
+    maxCombo: 10,
+    latestClick: false
   }),
   methods: {
     selectParent: function(elm) {
       if(elm.active){
         this.points++;
+        if(this.combo < this.maxCombo){
+          this.combo++;
+        }
+        this.latestClick = new Date();
+        if(this.combo > 2){
+          this.points += Math.round(this.combo/2);
+        }
         elm.active = false;
         elm.childs = [
           {active: false, childs:[]},
@@ -71,7 +81,7 @@ export default {
     },
     activeRandom: function(){
       this.clearActives();
-      var count = Math.abs(this.allElements.length / 2);
+      var count = Math.abs(this.allElements.length / 3);
       var selected = 0;
       while (selected < count) {
         var index = Math.floor(Math.random() * this.allElements.length);
@@ -81,8 +91,20 @@ export default {
         }
       }
     },
+    compare: function(a, b) {
+      if (a.points > b.points) {
+        return -1;
+      }
+      if (a.points < b.points) {
+        return 1;
+      }
+      return 0;
+    },
     restart: function(){
         this.history.push({points: this.points});
+        this.history = this.history.sort(this.compare);
+        this.combo = 0;
+        this.latestClick = false;
         this.initial = [
             {active: false, childs:[], sub_container: false},
             {active: false, childs:[], sub_container: false},
@@ -97,16 +119,26 @@ export default {
         this.activeRandom();
       }.bind(this), 1000);
     },
-    clearInterval: function() {
-      clearInterval(this.interval)
+    clearIntervals: function() {
+      clearInterval(this.interval);
+      clearInterval(this.comboTimer);
+    },
+    checkCombo: function() {
+      let date = new Date();
+      date.setSeconds(date.getSeconds() - 1.5);
+      if(this.latestClick && this.latestClick < date){
+        this.combo = 0;
+      }
     }
   },
+
   created: function() {
     this.allElements = this.allElements.concat(this.initial);
+    this.comboTimer = setInterval(this.checkCombo.bind(this),500)
     this.startInterval();
   },
   beforeDestroy: function() {
-    this.clearInterval();
+    this.clearIntervals();
   }
 }
 </script>
@@ -207,6 +239,9 @@ export default {
 	cursor: pointer;
 }
 .counter{
+  padding: 10px;
+}
+.container span {
   padding: 10px;
 }
 @media (max-width: 768px){
