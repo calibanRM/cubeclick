@@ -70,7 +70,7 @@ export default {
         });
         this.allElements = this.allElements.concat(elm.childs);
         elm.sub_container = true;
-      }else{
+      }else if(elm.childs.length === 0){
         this.restart();
       }
     },
@@ -188,7 +188,6 @@ export default {
 	height:calc(50% - 2 * 3px);
 	margin: 3px;
 	width:calc(50% - 2 * 3px);
-
 }
 .sub_container{
 	float: left;
